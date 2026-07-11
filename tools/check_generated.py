@@ -24,7 +24,7 @@ import render_markdown
 
 
 def _targets_for_profile(profile_path):
-    profile = render_all.load_profile(profile_path)
+    profile = render_all.enrich_profile(render_all.load_profile(profile_path))
     stem = profile_path.stem
     us = render_all.underscore_name(stem)
     return [

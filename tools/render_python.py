@@ -70,6 +70,11 @@ def render(profile):
         lines.append("    0x{:02X}: {},".format(value, _py_str(name)))
     lines.append("}")
     lines.append("")
+    snapshot = profile.get("snapshot")
+    if snapshot:
+        for name in sorted(snapshot.get("consts", {})):
+            lines.append("{} = {}".format(name, snapshot["consts"][name]["value"]))
+        lines.append("")
     return "\n".join(lines)
 
 

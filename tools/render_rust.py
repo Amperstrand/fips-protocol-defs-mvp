@@ -83,6 +83,12 @@ def render(profile):
         lines.append("    (0x{:02X}, {}),".format(value, _rust_str(name)))
     lines.append("];")
     lines.append("")
+    snapshot = profile.get("snapshot")
+    if snapshot:
+        for name in sorted(snapshot.get("consts", {})):
+            c = snapshot["consts"][name]
+            lines.append("pub const {}: {} = {};".format(name, c["type"], c["value"]))
+        lines.append("")
     return "\n".join(lines)
 
 

@@ -65,3 +65,38 @@
 - This profile is intended to describe the stable current interop path.
 - Exact byte-level vectors should be added later.
 - Constants should eventually be extracted from pinned upstream source instead of hand-authored.
+
+## Extracted constants (canonical upstream)
+
+| Constant | Type | Value |
+| --- | --- | --- |
+| COLD_START_SAMPLES | u32 | 5 |
+| COORDS_REQUIRED_SIZE | usize | 34 |
+| DEFAULT_COLD_START_INTERVAL_MS | u64 | 200 |
+| DEFAULT_LOG_INTERVAL_SECS | u64 | 30 |
+| DEFAULT_OWD_WINDOW_SIZE | usize | 32 |
+| EPOCH_ENCRYPTED_SIZE | usize | 24 |
+| EPOCH_SIZE | usize | 8 |
+| HANDSHAKE_MSG1_SIZE | usize | 106 |
+| HANDSHAKE_MSG2_SIZE | usize | 57 |
+| JITTER_ALPHA_SHIFT | u32 | 4 |
+| MAX_MESSAGE_SIZE | usize | 65535 |
+| MIN_SESSION_REPORT_INTERVAL_MS | u64 | 500 |
+| MTU_EXCEEDED_SIZE | usize | 36 |
+| PATH_MTU_NOTIFICATION_SIZE | usize | 2 |
+| PROTOCOL_VERSION | u8 | 1 |
+| PUBKEY_SIZE | usize | 33 |
+| RECEIVER_REPORT_BODY_SIZE | usize | 67 |
+| RECEIVER_REPORT_WIRE_SIZE | usize | 72 |
+| REPLAY_WINDOW_SIZE | usize | 2048 |
+| RTTVAR_BETA_SHIFT | u32 | 2 |
+| SENDER_REPORT_BODY_SIZE | usize | 47 |
+| SENDER_REPORT_WIRE_SIZE | usize | 52 |
+| SESSION_DATAGRAM_HEADER_SIZE | usize | 36 |
+| SESSION_RECEIVER_REPORT_SIZE | usize | 66 |
+| SESSION_SENDER_REPORT_SIZE | usize | 46 |
+| SRTT_ALPHA_SHIFT | u32 | 3 |
+| TAG_SIZE | usize | 16 |
+| XK_HANDSHAKE_MSG1_SIZE | usize | 33 |
+| XK_HANDSHAKE_MSG2_SIZE | usize | 57 |
+| XK_HANDSHAKE_MSG3_SIZE | usize | 73 |

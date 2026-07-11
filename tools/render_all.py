@@ -26,6 +26,24 @@ def load_profile(path):
         return json.load(f)
 
 
+def enrich_profile(profile):
+    """Attach the extraction snapshot linked by upstream.snapshot_ref, if any.
+
+    Renderers read profile['snapshot'] to emit extraction-fed constants. Profiles
+    without a snapshot_ref (e.g. draft future profiles) pass through unchanged.
+    """
+    snap_ref = (profile.get("upstream") or {}).get("snapshot_ref")
+    if not snap_ref:
+        return profile
+    snap_path = REPO_ROOT / snap_ref
+    if not snap_path.is_file():
+        return profile
+    merged = dict(profile)
+    with open(snap_path, "r", encoding="utf-8") as f:
+        merged["snapshot"] = json.load(f)
+    return merged
+
+
 def underscore_name(name):
     return name.replace("-", "_")
 
@@ -43,7 +61,7 @@ def render_all():
     profile_paths = sorted(PROFILES_DIR.glob("*.json"))
     written = []
     for profile_path in profile_paths:
-        profile = load_profile(profile_path)
+        profile = enrich_profile(load_profile(profile_path))
         stem = profile_path.stem
         us = underscore_name(stem)
         for subdir, ext, module, use_dashed in RENDERERS:

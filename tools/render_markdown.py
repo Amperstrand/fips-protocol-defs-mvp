@@ -124,6 +124,17 @@ def render(profile):
             lines.append("- {}".format(note))
         lines.append("")
 
+    snapshot = profile.get("snapshot")
+    if snapshot:
+        lines.append("## Extracted constants (canonical upstream)")
+        lines.append("")
+        lines.append("| Constant | Type | Value |")
+        lines.append("| --- | --- | --- |")
+        for name in sorted(snapshot.get("consts", {})):
+            c = snapshot["consts"][name]
+            lines.append("| {} | {} | {} |".format(name, c["type"], c["value"]))
+        lines.append("")
+
     return "\n".join(lines)
 
 

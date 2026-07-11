@@ -35,3 +35,34 @@ pub const LINK_MESSAGE_TYPES: &[(u8, &str)] = &[
     (0x50, "Disconnect"),
     (0x51, "Heartbeat"),
 ];
+
+pub const COLD_START_SAMPLES: u32 = 5;
+pub const COORDS_REQUIRED_SIZE: usize = 34;
+pub const DEFAULT_COLD_START_INTERVAL_MS: u64 = 200;
+pub const DEFAULT_LOG_INTERVAL_SECS: u64 = 30;
+pub const DEFAULT_OWD_WINDOW_SIZE: usize = 32;
+pub const EPOCH_ENCRYPTED_SIZE: usize = 24;
+pub const EPOCH_SIZE: usize = 8;
+pub const HANDSHAKE_MSG1_SIZE: usize = 106;
+pub const HANDSHAKE_MSG2_SIZE: usize = 57;
+pub const JITTER_ALPHA_SHIFT: u32 = 4;
+pub const MAX_MESSAGE_SIZE: usize = 65535;
+pub const MIN_SESSION_REPORT_INTERVAL_MS: u64 = 500;
+pub const MTU_EXCEEDED_SIZE: usize = 36;
+pub const PATH_MTU_NOTIFICATION_SIZE: usize = 2;
+pub const PROTOCOL_VERSION: u8 = 1;
+pub const PUBKEY_SIZE: usize = 33;
+pub const RECEIVER_REPORT_BODY_SIZE: usize = 67;
+pub const RECEIVER_REPORT_WIRE_SIZE: usize = 72;
+pub const REPLAY_WINDOW_SIZE: usize = 2048;
+pub const RTTVAR_BETA_SHIFT: u32 = 2;
+pub const SENDER_REPORT_BODY_SIZE: usize = 47;
+pub const SENDER_REPORT_WIRE_SIZE: usize = 52;
+pub const SESSION_DATAGRAM_HEADER_SIZE: usize = 36;
+pub const SESSION_RECEIVER_REPORT_SIZE: usize = 66;
+pub const SESSION_SENDER_REPORT_SIZE: usize = 46;
+pub const SRTT_ALPHA_SHIFT: u32 = 3;
+pub const TAG_SIZE: usize = 16;
+pub const XK_HANDSHAKE_MSG1_SIZE: usize = 33;
+pub const XK_HANDSHAKE_MSG2_SIZE: usize = 57;
+pub const XK_HANDSHAKE_MSG3_SIZE: usize = 73;

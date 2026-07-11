@@ -73,6 +73,11 @@ def render(profile):
         lines.append("    [0x{:02X}] = {},".format(value, _lua_str(name)))
     lines.append("}")
     lines.append("")
+    snapshot = profile.get("snapshot")
+    if snapshot:
+        for name in sorted(snapshot.get("consts", {})):
+            lines.append("M.{} = {}".format(name, snapshot["consts"][name]["value"]))
+        lines.append("")
     lines.append("return M")
     lines.append("")
     return "\n".join(lines)

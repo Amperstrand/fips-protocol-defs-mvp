@@ -33,25 +33,21 @@ pub const TAG_SIZE: usize = 16;
 pub const XK_HANDSHAKE_MSG1_SIZE: usize = 33;
 pub const XK_HANDSHAKE_MSG2_SIZE: usize = 57;
 pub const XK_HANDSHAKE_MSG3_SIZE: usize = 73;
-pub const LINK_MSG: &[(u8, &str)] = &[
-    (0x00, "SessionDatagram"),
-    (0x01, "SenderReport"),
-    (0x02, "ReceiverReport"),
-    (0x10, "TreeAnnounce"),
-    (0x20, "FilterAnnounce"),
-    (0x30, "LookupRequest"),
-    (0x31, "LookupResponse"),
-    (0x50, "Disconnect"),
-    (0x51, "Heartbeat"),
-];
-pub const DISC_REASON: &[(u8, &str)] = &[
-    (0x00, "Shutdown"),
-    (0x01, "Restart"),
-    (0x02, "ProtocolError"),
-    (0x03, "TransportFailure"),
-    (0x04, "ResourceExhaustion"),
-    (0x05, "SecurityViolation"),
-    (0x06, "ConfigurationChange"),
-    (0x07, "Timeout"),
-    (0xFF, "Other"),
-];
+pub const LINK_MSG_SESSION_DATAGRAM: u8 = 0x00;
+pub const LINK_MSG_SENDER_REPORT: u8 = 0x01;
+pub const LINK_MSG_RECEIVER_REPORT: u8 = 0x02;
+pub const LINK_MSG_TREE_ANNOUNCE: u8 = 0x10;
+pub const LINK_MSG_FILTER_ANNOUNCE: u8 = 0x20;
+pub const LINK_MSG_LOOKUP_REQUEST: u8 = 0x30;
+pub const LINK_MSG_LOOKUP_RESPONSE: u8 = 0x31;
+pub const LINK_MSG_DISCONNECT: u8 = 0x50;
+pub const LINK_MSG_HEARTBEAT: u8 = 0x51;
+pub const DISC_REASON_SHUTDOWN: u8 = 0x00;
+pub const DISC_REASON_RESTART: u8 = 0x01;
+pub const DISC_REASON_PROTOCOL_ERROR: u8 = 0x02;
+pub const DISC_REASON_TRANSPORT_FAILURE: u8 = 0x03;
+pub const DISC_REASON_RESOURCE_EXHAUSTION: u8 = 0x04;
+pub const DISC_REASON_SECURITY_VIOLATION: u8 = 0x05;
+pub const DISC_REASON_CONFIGURATION_CHANGE: u8 = 0x06;
+pub const DISC_REASON_TIMEOUT: u8 = 0x07;
+pub const DISC_REASON_OTHER: u8 = 0xFF;

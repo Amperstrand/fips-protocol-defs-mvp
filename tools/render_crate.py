@@ -10,6 +10,15 @@ LIB_RS = REPO_ROOT / "rust" / "fips-proto-defs" / "src" / "lib.rs"
 _ENUM_TABLES = [("LinkMessageType", "LINK_MSG"), ("DisconnectReason", "DISC_REASON")]
 
 
+def _screaming_snake(name):
+    out = []
+    for i, ch in enumerate(name):
+        if ch.isupper() and i > 0:
+            out.append("_")
+        out.append(ch.upper())
+    return "".join(out)
+
+
 def render(snap):
     up = snap["upstream"]
     lines = [
@@ -24,12 +33,8 @@ def render(snap):
         lines.append("pub const {}: {} = {};".format(name, c["type"], c["value"]))
     for enum_name, prefix in _ENUM_TABLES:
         variants = snap.get("enums", {}).get(enum_name, {})
-        if not variants:
-            continue
-        lines.append("pub const {}: &[(u8, &str)] = &[".format(prefix))
         for vname in sorted(variants, key=lambda k: variants[k]):
-            lines.append('    (0x{:02X}, "{}"),'.format(variants[vname], vname))
-        lines.append("];")
+            lines.append("pub const {}_{}: u8 = 0x{:02X};".format(prefix, _screaming_snake(vname), variants[vname]))
     lines.append("")
     return "\n".join(lines)
 

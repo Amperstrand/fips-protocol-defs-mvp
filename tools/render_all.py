@@ -15,6 +15,7 @@ GENERATED_DIR = REPO_ROOT / "generated"
 
 sys.path.insert(0, str(TOOLS_DIR))
 
+import render_crate
 import render_rust
 import render_python
 import render_lua
@@ -72,6 +73,12 @@ def render_all():
             content = module.render(profile)
             out_path.write_text(content, encoding="utf-8")
             written.append(out_path)
+
+    with open(render_crate.SNAPSHOT_PATH, encoding="utf-8") as f:
+        crate_snap = json.load(f)
+    render_crate.LIB_RS.parent.mkdir(parents=True, exist_ok=True)
+    render_crate.LIB_RS.write_text(render_crate.render(crate_snap), encoding="utf-8")
+    written.append(render_crate.LIB_RS)
     return written
 
 

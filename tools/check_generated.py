@@ -7,6 +7,7 @@ Usage:
 Exit code 0 means every generated file is up to date. Exit code 1 means one
 or more generated files are missing or stale; their paths are printed.
 """
+import json
 import sys
 from pathlib import Path
 
@@ -17,6 +18,7 @@ GENERATED_DIR = REPO_ROOT / "generated"
 sys.path.insert(0, str(TOOLS_DIR))
 
 import render_all
+import render_crate
 import render_rust
 import render_python
 import render_lua
@@ -46,6 +48,15 @@ def check():
                 continue
             if path.read_text(encoding="utf-8") != content:
                 stale.append(str(rel))
+
+    with open(render_crate.SNAPSHOT_PATH, encoding="utf-8") as f:
+        crate_content = render_crate.render(json.load(f))
+    crate_path = render_crate.LIB_RS
+    crate_rel = str(crate_path.relative_to(REPO_ROOT))
+    if not crate_path.exists():
+        missing.append(crate_rel)
+    elif crate_path.read_text(encoding="utf-8") != crate_content:
+        stale.append(crate_rel)
     return missing, stale
 
 

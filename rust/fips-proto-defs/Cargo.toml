@@ -1,0 +1,10 @@
+[package]
+name = "fips-proto-defs"
+version = "0.1.0"
+edition = "2021"
+description = "Generated FIPS protocol constants extracted from canonical jmcorgan/fips (experimental, downstream)."
+license = "MIT"
+
+[lib]
+name = "fips_proto_defs"
+path = "src/lib.rs"

@@ -15,11 +15,32 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Rust (no_std target)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: thumbv7em-none-eabi
+
       - name: Render all generated outputs
         run: python3 tools/render_all.py
 
-      - name: Verify generated files are up to date
+      - name: Verify generated files are fresh (incl. no_std crate lib.rs)
         run: python3 tools/check_generated.py
+
+      - name: Build no_std crate (thumbv7em-none-eabi)
+        run: cargo build --manifest-path rust/fips-proto-defs/Cargo.toml --target thumbv7em-none-eabi
+
+      - name: Extractor freshness (v0.4.0 must match checked-in snapshot)
+        run: |
+          python3 tools/extract_upstream.py --name v0.4.0 --ref v0.4.0 --out /tmp/v040.fresh.json
+          python3 -c "import json; a=json.load(open('snapshots/v0.4.0.json')); b=json.load(open('/tmp/v040.fresh.json')); assert a==b, 'v0.4.0 snapshot drifted from fresh extraction'"
+
+      - name: Master drift (warn only)
+        continue-on-error: true
+        run: |
+          python3 tools/extract_upstream.py --name master --ref master --out /tmp/master.fresh.json
+          python3 -c "import json,sys; a=json.load(open('snapshots/master.json')); b=json.load(open('/tmp/master.fresh.json')); sys.exit(0 if a==b else 1)" \
+            && echo "master snapshot unchanged" \
+            || echo "WARN: master drifted vs checked-in snapshot; refresh with: python3 tools/extract_upstream.py --name master --ref master"
 
       - name: Diff profiles (v0 -> v1)
         run: python3 tools/diff_profiles.py profiles/fips-v0-ik-xk.json profiles/fips-v1-xx-draft.json

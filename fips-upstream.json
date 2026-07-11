@@ -16,6 +16,13 @@
       "ref": "master",
       "snapshot": "snapshots/master.json",
       "status": "latest-main"
+    },
+    "next": {
+      "ref": "next",
+      "commit": "81baeebf2247cc26e13ca631066b7ee6bc6380ca",
+      "snapshot": "snapshots/next.json",
+      "profile": "fips-v1-xx-draft",
+      "status": "draft-future"
     }
   },
   "profiles": {

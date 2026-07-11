@@ -4,9 +4,10 @@
   "description": "future/draft FIPS profile for FMP v1 using Noise XX three-message handshake.",
   "upstream": {
     "repo": "https://github.com/jmcorgan/fips.git",
-    "ref": "upstream-future",
-    "commit": null,
-    "source": "draft profile for microfips PR #132; not current upstream-compatible"
+    "ref": "next",
+    "commit": "81baeebf2247cc26e13ca631066b7ee6bc6380ca",
+    "snapshot_ref": "snapshots/next.json",
+    "source": "extraction-fed from canonical jmcorgan/fips@next (FMP v1 / Noise XX; draft, do not enable until upstream ships v0.5.0)"
   },
   "intended_consumers": [
     "Amperstrand/microfips",
@@ -30,24 +31,24 @@
         "role": "initiator_to_responder",
         "summary": "Noise XX message 1: ephemeral key only",
         "payload_pattern": "e",
-        "wire_size_known": false,
-        "wire_size": null
+        "wire_size_known": true,
+        "wire_size": 33
       },
       "msg2": {
         "present": true,
         "role": "responder_to_initiator",
         "summary": "Noise XX message 2: responder ephemeral/static encrypted material and epoch",
         "payload_pattern": "e,ee,s,es,epoch",
-        "wire_size_known": false,
-        "wire_size": null
+        "wire_size_known": true,
+        "wire_size": 106
       },
       "msg3": {
         "present": true,
         "role": "initiator_to_responder",
         "summary": "Noise XX message 3: initiator static encrypted material and epoch",
         "payload_pattern": "s,se,epoch",
-        "wire_size_known": false,
-        "wire_size": null
+        "wire_size_known": true,
+        "wire_size": 73
       }
     }
   },

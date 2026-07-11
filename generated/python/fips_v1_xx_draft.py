@@ -4,8 +4,8 @@
 # Source profile:   fips-v1-xx-draft
 # Profile status:   draft-future
 # Upstream repo:    https://github.com/jmcorgan/fips.git
-# Upstream ref:     upstream-future
-# Upstream commit:  <unpinned>
+# Upstream ref:     next
+# Upstream commit:  81baeebf2247cc26e13ca631066b7ee6bc6380ca
 # Generator:        tools/render_python.py
 #
 # This file is downstream experimental tooling. It is NOT the canonical
@@ -14,8 +14,8 @@
 PROFILE_NAME = "fips-v1-xx-draft"
 PROFILE_STATUS = "draft-future"
 FIPS_UPSTREAM_REPO = "https://github.com/jmcorgan/fips.git"
-FIPS_UPSTREAM_REF = "upstream-future"
-FIPS_UPSTREAM_COMMIT = None
+FIPS_UPSTREAM_REF = "next"
+FIPS_UPSTREAM_COMMIT = "81baeebf2247cc26e13ca631066b7ee6bc6380ca"
 FMP_VERSION = 1
 HANDSHAKE_PATTERN = "XX"
 COMMON_PREFIX_SIZE = 4
@@ -35,3 +35,26 @@ LINK_MESSAGE_TYPES = {
     0x50: "Disconnect",
     0x51: "Heartbeat",
 }
+
+COORDS_REQUIRED_SIZE = 34
+ENCRYPTED_MIN_SIZE = 32
+EPOCH_ENCRYPTED_SIZE = 24
+EPOCH_SIZE = 8
+HANDSHAKE_MSG1_SIZE = 33
+HANDSHAKE_MSG2_SIZE = 106
+HANDSHAKE_MSG3_SIZE = 73
+MAX_MESSAGE_SIZE = 65535
+MSG1_WIRE_SIZE = 41
+MSG2_WIRE_SIZE = 118
+MSG3_WIRE_SIZE = 85
+MTU_EXCEEDED_SIZE = 36
+NEGOTIATION_HEADER_SIZE = 10
+PATH_MTU_NOTIFICATION_SIZE = 2
+PUBKEY_SIZE = 33
+RECEIVER_REPORT_SIZE = 54
+REPLAY_WINDOW_SIZE = 2048
+SENDER_REPORT_SIZE = 20
+SESSION_DATAGRAM_HEADER_SIZE = 36
+SESSION_RECEIVER_REPORT_SIZE = 53
+SESSION_SENDER_REPORT_SIZE = 19
+TAG_SIZE = 16

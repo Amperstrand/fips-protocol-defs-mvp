@@ -54,5 +54,17 @@ class SnapshotRenderingTests(unittest.TestCase):
         self.assertNotIn("PROTOCOL_VERSION", render_rust.render(bare))
 
 
+V1 = os.path.join(ROOT, "profiles", "fips-v1-xx-draft.json")
+
+
+class V1DraftSnapshotTests(unittest.TestCase):
+    def test_no_duplicate_consts_when_snapshot_overlaps_shape(self):
+        prof = render_all.enrich_profile(render_all.load_profile(V1))
+        out = render_rust.render(prof)
+        self.assertEqual(out.count("pub const FMP_VERSION: u8 = 1;"), 1)
+        self.assertEqual(out.count("pub const COMMON_PREFIX_SIZE: usize = 4;"), 1)
+        self.assertIn("pub const HANDSHAKE_MSG3_SIZE: usize = 73;", out)
+
+
 if __name__ == "__main__":
     unittest.main()

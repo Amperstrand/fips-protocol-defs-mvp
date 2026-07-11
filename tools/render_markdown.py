@@ -9,6 +9,13 @@ import sys
 
 GENERATOR_NAME = "tools/render_markdown.py"
 
+_SHAPE_EMIT = frozenset({
+    "FMP_VERSION",
+    "COMMON_PREFIX_SIZE",
+    "ESTABLISHED_HEADER_SIZE",
+    "INNER_HEADER_SIZE",
+})
+
 
 def load_profile(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -131,6 +138,8 @@ def render(profile):
         lines.append("| Constant | Type | Value |")
         lines.append("| --- | --- | --- |")
         for name in sorted(snapshot.get("consts", {})):
+            if name in _SHAPE_EMIT:
+                continue
             c = snapshot["consts"][name]
             lines.append("| {} | {} | {} |".format(name, c["type"], c["value"]))
         lines.append("")

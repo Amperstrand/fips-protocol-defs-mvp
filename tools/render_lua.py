@@ -9,6 +9,13 @@ import sys
 
 GENERATOR_NAME = "tools/render_lua.py"
 
+_SHAPE_EMIT = frozenset({
+    "FMP_VERSION",
+    "COMMON_PREFIX_SIZE",
+    "ESTABLISHED_HEADER_SIZE",
+    "INNER_HEADER_SIZE",
+})
+
 
 def load_profile(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -76,6 +83,8 @@ def render(profile):
     snapshot = profile.get("snapshot")
     if snapshot:
         for name in sorted(snapshot.get("consts", {})):
+            if name in _SHAPE_EMIT:
+                continue
             lines.append("M.{} = {}".format(name, snapshot["consts"][name]["value"]))
         lines.append("")
     lines.append("return M")

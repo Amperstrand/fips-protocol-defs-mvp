@@ -5,8 +5,9 @@
   "upstream": {
     "repo": "https://github.com/jmcorgan/fips.git",
     "ref": "v0.4.0",
-    "commit": "780dbadea096",
-    "source": "hand-authored MVP profile based on current microfips/fips-lab compatibility notes"
+    "commit": "d5ee526f0e15d6e7a6336cf5746c763f4d1779e8",
+    "snapshot_ref": "snapshots/v0.4.0.json",
+    "source": "extraction-fed from canonical jmcorgan/fips@v0.4.0 (see snapshot_ref)"
   },
   "intended_consumers": [
     "Amperstrand/microfips",
@@ -29,15 +30,15 @@
         "present": true,
         "role": "initiator_to_responder",
         "summary": "initial FMP handshake message for v0-compatible profile",
-        "wire_size_known": false,
-        "wire_size": null
+        "wire_size_known": true,
+        "wire_size": 106
       },
       "msg2": {
         "present": true,
         "role": "responder_to_initiator",
         "summary": "response FMP handshake message for v0-compatible profile",
-        "wire_size_known": false,
-        "wire_size": null
+        "wire_size_known": true,
+        "wire_size": 57
       }
     }
   },

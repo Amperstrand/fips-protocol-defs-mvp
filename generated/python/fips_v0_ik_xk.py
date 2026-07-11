@@ -5,7 +5,7 @@
 # Profile status:   current-compatible
 # Upstream repo:    https://github.com/jmcorgan/fips.git
 # Upstream ref:     v0.4.0
-# Upstream commit:  780dbadea096
+# Upstream commit:  d5ee526f0e15d6e7a6336cf5746c763f4d1779e8
 # Generator:        tools/render_python.py
 #
 # This file is downstream experimental tooling. It is NOT the canonical
@@ -15,7 +15,7 @@ PROFILE_NAME = "fips-v0-ik-xk"
 PROFILE_STATUS = "current-compatible"
 FIPS_UPSTREAM_REPO = "https://github.com/jmcorgan/fips.git"
 FIPS_UPSTREAM_REF = "v0.4.0"
-FIPS_UPSTREAM_COMMIT = "780dbadea096"
+FIPS_UPSTREAM_COMMIT = "d5ee526f0e15d6e7a6336cf5746c763f4d1779e8"
 FMP_VERSION = 0
 HANDSHAKE_PATTERN = "IK_XK"
 COMMON_PREFIX_SIZE = 4

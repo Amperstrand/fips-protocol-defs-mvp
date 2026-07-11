@@ -2,21 +2,25 @@
   "upstream": {
     "repo": "https://github.com/jmcorgan/fips.git",
     "authority": "jmcorgan/fips",
-    "default_tracking_ref": "master"
+    "note": "Canonical upstream only. The Amperstrand/fips fork is NOT used."
   },
-  "profiles": {
-    "current_compatible": {
-      "name": "fips-v0-ik-xk",
+  "versions": {
+    "v0.4.0": {
       "ref": "v0.4.0",
-      "commit": "780dbadea096",
+      "commit": "d5ee526f0e15d6e7a6336cf5746c763f4d1779e8",
+      "snapshot": "snapshots/v0.4.0.json",
+      "profile": "fips-v0-ik-xk",
       "status": "current-compatible"
     },
-    "future_draft": {
-      "name": "fips-v1-xx-draft",
-      "ref": "upstream-future",
-      "commit": null,
-      "status": "draft-future"
+    "master": {
+      "ref": "master",
+      "snapshot": "snapshots/master.json",
+      "status": "latest-main"
     }
+  },
+  "profiles": {
+    "current_compatible": "fips-v0-ik-xk",
+    "future_draft": "fips-v1-xx-draft"
   },
   "consumers": [
     "Amperstrand/microfips",

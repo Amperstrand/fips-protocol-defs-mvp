@@ -13,8 +13,8 @@
 | --- | --- |
 | Repo | https://github.com/jmcorgan/fips.git |
 | Ref | v0.4.0 |
-| Commit | 780dbadea096 |
-| Source | hand-authored MVP profile based on current microfips/fips-lab compatibility notes |
+| Commit | d5ee526f0e15d6e7a6336cf5746c763f4d1779e8 |
+| Source | extraction-fed from canonical jmcorgan/fips@v0.4.0 (see snapshot_ref) |
 
 > This profile is downstream experimental tooling. It is NOT the canonical
 > FIPS protocol specification. Upstream `jmcorgan/fips` remains the authority.
@@ -43,8 +43,8 @@
 
 | Message | Present | Role | Wire size | Payload pattern | Summary |
 | --- | --- | --- | --- | --- | --- |
-| msg1 | yes | initiator_to_responder | unknown | — | initial FMP handshake message for v0-compatible profile |
-| msg2 | yes | responder_to_initiator | unknown | — | response FMP handshake message for v0-compatible profile |
+| msg1 | yes | initiator_to_responder | 106 bytes | — | initial FMP handshake message for v0-compatible profile |
+| msg2 | yes | responder_to_initiator | 57 bytes | — | response FMP handshake message for v0-compatible profile |
 
 ## Link message types
 

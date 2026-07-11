@@ -36,6 +36,7 @@
         "repo": { "type": "string" },
         "ref": { "type": "string" },
         "commit": { "type": ["string", "null"] },
+        "snapshot_ref": { "type": "string" },
         "source": { "type": "string" }
       }
     },

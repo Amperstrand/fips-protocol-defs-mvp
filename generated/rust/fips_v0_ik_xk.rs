@@ -5,7 +5,7 @@
 // Profile status:   current-compatible
 // Upstream repo:    https://github.com/jmcorgan/fips.git
 // Upstream ref:     v0.4.0
-// Upstream commit:  780dbadea096
+// Upstream commit:  d5ee526f0e15d6e7a6336cf5746c763f4d1779e8
 // Generator:        tools/render_rust.py
 //
 // This file is downstream experimental tooling. It is NOT the canonical
@@ -15,7 +15,7 @@ pub const PROFILE_NAME: &str = "fips-v0-ik-xk";
 pub const PROFILE_STATUS: &str = "current-compatible";
 pub const FIPS_UPSTREAM_REPO: &str = "https://github.com/jmcorgan/fips.git";
 pub const FIPS_UPSTREAM_REF: &str = "v0.4.0";
-pub const FIPS_UPSTREAM_COMMIT: Option<&str> = Some("780dbadea096");
+pub const FIPS_UPSTREAM_COMMIT: Option<&str> = Some("d5ee526f0e15d6e7a6336cf5746c763f4d1779e8");
 pub const FMP_VERSION: u8 = 0;
 pub const HANDSHAKE_PATTERN: &str = "IK_XK";
 pub const COMMON_PREFIX_SIZE: usize = 4;

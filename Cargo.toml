@@ -1,0 +1,3 @@
+[workspace]
+members = ["rust/fips-proto-defs"]
+resolver = "2"

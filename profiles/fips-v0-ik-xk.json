@@ -1,0 +1,62 @@
+{
+  "profile_name": "fips-v0-ik-xk",
+  "status": "current-compatible",
+  "description": "current-compatible FIPS profile for FMP v0 using IK/XK-style handshake behavior.",
+  "upstream": {
+    "repo": "https://github.com/jmcorgan/fips.git",
+    "ref": "v0.4.0",
+    "commit": "780dbadea096",
+    "source": "hand-authored MVP profile based on current microfips/fips-lab compatibility notes"
+  },
+  "intended_consumers": [
+    "Amperstrand/microfips",
+    "Amperstrand/fips-lab",
+    "Wireshark Lua experiments"
+  ],
+  "compatibility": {
+    "microfips_pr": "#133",
+    "fips_lab": "current generated Python constants should target this profile first",
+    "upstream_requirement": "current FIPS v0-compatible deployment"
+  },
+  "fmp": {
+    "version": 0,
+    "handshake_pattern": "IK_XK",
+    "common_prefix_size": 4,
+    "established_header_size": 16,
+    "inner_header_size": 5,
+    "messages": {
+      "msg1": {
+        "present": true,
+        "role": "initiator_to_responder",
+        "summary": "initial FMP handshake message for v0-compatible profile",
+        "wire_size_known": false,
+        "wire_size": null
+      },
+      "msg2": {
+        "present": true,
+        "role": "responder_to_initiator",
+        "summary": "response FMP handshake message for v0-compatible profile",
+        "wire_size_known": false,
+        "wire_size": null
+      }
+    }
+  },
+  "link": {
+    "message_types": {
+      "0x00": "SessionDatagram",
+      "0x01": "SenderReport",
+      "0x02": "ReceiverReport",
+      "0x10": "TreeAnnounce",
+      "0x20": "FilterAnnounce",
+      "0x30": "LookupRequest",
+      "0x31": "LookupResponse",
+      "0x50": "Disconnect",
+      "0x51": "Heartbeat"
+    }
+  },
+  "notes": [
+    "This profile is intended to describe the stable current interop path.",
+    "Exact byte-level vectors should be added later.",
+    "Constants should eventually be extracted from pinned upstream source instead of hand-authored."
+  ]
+}

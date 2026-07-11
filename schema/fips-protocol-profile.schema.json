@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Amperstrand/fips-protocol-defs-mvp/schema/fips-protocol-profile.schema.json",
+  "title": "FIPS protocol profile (MVP)",
+  "description": "Experimental, hand-authored FIPS protocol profile schema for fips-protocol-defs-mvp. This is NOT the canonical FIPS protocol specification; upstream jmcorgan/fips remains the authority.",
+  "type": "object",
+  "required": [
+    "profile_name",
+    "status",
+    "description",
+    "upstream",
+    "intended_consumers",
+    "compatibility",
+    "fmp",
+    "link",
+    "notes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "profile_name": {
+      "type": "string",
+      "description": "Stable, machine-friendly profile name, e.g. fips-v0-ik-xk."
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle status such as current-compatible or draft-future."
+    },
+    "description": {
+      "type": "string"
+    },
+    "upstream": {
+      "type": "object",
+      "required": ["repo", "ref", "commit", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "repo": { "type": "string" },
+        "ref": { "type": "string" },
+        "commit": { "type": ["string", "null"] },
+        "source": { "type": "string" }
+      }
+    },
+    "intended_consumers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["microfips_pr", "fips_lab", "upstream_requirement"],
+      "additionalProperties": false,
+      "properties": {
+        "microfips_pr": { "type": ["string", "null"] },
+        "fips_lab": { "type": "string" },
+        "upstream_requirement": { "type": "string" }
+      }
+    },
+    "fmp": {
+      "type": "object",
+      "required": [
+        "version",
+        "handshake_pattern",
+        "common_prefix_size",
+        "established_header_size",
+        "inner_header_size",
+        "messages"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": { "type": "number" },
+        "handshake_pattern": { "type": "string" },
+        "common_prefix_size": { "type": "number" },
+        "established_header_size": { "type": "number" },
+        "inner_header_size": { "type": "number" },
+        "messages": {
+          "type": "object",
+          "description": "Handshake messages keyed msg1, msg2, msg3 ...",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["present", "role", "summary", "wire_size_known", "wire_size"],
+            "additionalProperties": false,
+            "properties": {
+              "present": { "type": "boolean" },
+              "role": { "type": "string" },
+              "summary": { "type": "string" },
+              "payload_pattern": { "type": "string" },
+              "wire_size_known": { "type": "boolean" },
+              "wire_size": { "type": ["number", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "required": ["message_types"],
+      "additionalProperties": false,
+      "properties": {
+        "message_types": {
+          "type": "object",
+          "description": "Link message type table keyed by hex string such as 0x00.",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

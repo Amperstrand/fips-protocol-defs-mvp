@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.venv/
+*.pyc
+
+# OS
+.DS_Store
+
+# Env / secrets (never commit)
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/

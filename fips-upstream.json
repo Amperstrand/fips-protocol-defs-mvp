@@ -1,0 +1,26 @@
+{
+  "upstream": {
+    "repo": "https://github.com/jmcorgan/fips.git",
+    "authority": "jmcorgan/fips",
+    "default_tracking_ref": "master"
+  },
+  "profiles": {
+    "current_compatible": {
+      "name": "fips-v0-ik-xk",
+      "ref": "v0.4.0",
+      "commit": "780dbadea096",
+      "status": "current-compatible"
+    },
+    "future_draft": {
+      "name": "fips-v1-xx-draft",
+      "ref": "upstream-future",
+      "commit": null,
+      "status": "draft-future"
+    }
+  },
+  "consumers": [
+    "Amperstrand/microfips",
+    "Amperstrand/fips-lab"
+  ],
+  "warning": "This repository is experimental downstream tooling. It is not the canonical FIPS protocol specification."
+}

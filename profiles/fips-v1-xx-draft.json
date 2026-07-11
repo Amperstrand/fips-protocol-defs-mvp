@@ -1,0 +1,73 @@
+{
+  "profile_name": "fips-v1-xx-draft",
+  "status": "draft-future",
+  "description": "future/draft FIPS profile for FMP v1 using Noise XX three-message handshake.",
+  "upstream": {
+    "repo": "https://github.com/jmcorgan/fips.git",
+    "ref": "upstream-future",
+    "commit": null,
+    "source": "draft profile for microfips PR #132; not current upstream-compatible"
+  },
+  "intended_consumers": [
+    "Amperstrand/microfips",
+    "Amperstrand/fips-lab",
+    "Wireshark Lua experiments"
+  ],
+  "compatibility": {
+    "microfips_pr": "#132",
+    "fips_lab": "future capture decoding profile once upstream and microfips agree on FMP v1/XX",
+    "upstream_requirement": "do not enable until upstream FIPS ships compatible FMP v1 / Noise XX behavior"
+  },
+  "fmp": {
+    "version": 1,
+    "handshake_pattern": "XX",
+    "common_prefix_size": 4,
+    "established_header_size": 16,
+    "inner_header_size": 5,
+    "messages": {
+      "msg1": {
+        "present": true,
+        "role": "initiator_to_responder",
+        "summary": "Noise XX message 1: ephemeral key only",
+        "payload_pattern": "e",
+        "wire_size_known": false,
+        "wire_size": null
+      },
+      "msg2": {
+        "present": true,
+        "role": "responder_to_initiator",
+        "summary": "Noise XX message 2: responder ephemeral/static encrypted material and epoch",
+        "payload_pattern": "e,ee,s,es,epoch",
+        "wire_size_known": false,
+        "wire_size": null
+      },
+      "msg3": {
+        "present": true,
+        "role": "initiator_to_responder",
+        "summary": "Noise XX message 3: initiator static encrypted material and epoch",
+        "payload_pattern": "s,se,epoch",
+        "wire_size_known": false,
+        "wire_size": null
+      }
+    }
+  },
+  "link": {
+    "message_types": {
+      "0x00": "SessionDatagram",
+      "0x01": "SenderReport",
+      "0x02": "ReceiverReport",
+      "0x10": "TreeAnnounce",
+      "0x20": "FilterAnnounce",
+      "0x30": "LookupRequest",
+      "0x31": "LookupResponse",
+      "0x50": "Disconnect",
+      "0x51": "Heartbeat"
+    }
+  },
+  "notes": [
+    "This profile is draft only.",
+    "Do not use as default for microfips main.",
+    "Keep PR #132 gated until upstream FIPS ships compatible FMP v1 / Noise XX.",
+    "Add golden vectors before making this profile stable."
+  ]
+}

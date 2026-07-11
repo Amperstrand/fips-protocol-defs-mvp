@@ -218,7 +218,8 @@ def main(argv=None):
     out = Path(args.out) if args.out else SNAPSHOTS_DIR / (args.name + ".json")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(snapshot, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    sys.stdout.write("wrote %s (upstream %s@%s)\n" % (out.relative_to(REPO_ROOT), args.ref, commit[:11]))
+    display = out.relative_to(REPO_ROOT) if out.is_relative_to(REPO_ROOT) else out
+    sys.stdout.write("wrote %s (upstream %s@%s)\n" % (display, args.ref, commit[:11]))
     return 0
 
 

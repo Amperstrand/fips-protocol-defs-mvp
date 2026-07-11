@@ -1,0 +1,173 @@
+{
+  "consts": {
+    "COLD_START_SAMPLES": {
+      "type": "u32",
+      "value": 5
+    },
+    "COORDS_REQUIRED_SIZE": {
+      "type": "usize",
+      "value": 34
+    },
+    "DEFAULT_COLD_START_INTERVAL_MS": {
+      "type": "u64",
+      "value": 200
+    },
+    "DEFAULT_LOG_INTERVAL_SECS": {
+      "type": "u64",
+      "value": 30
+    },
+    "DEFAULT_OWD_WINDOW_SIZE": {
+      "type": "usize",
+      "value": 32
+    },
+    "EPOCH_ENCRYPTED_SIZE": {
+      "type": "usize",
+      "value": 24
+    },
+    "EPOCH_SIZE": {
+      "type": "usize",
+      "value": 8
+    },
+    "HANDSHAKE_MSG1_SIZE": {
+      "type": "usize",
+      "value": 106
+    },
+    "HANDSHAKE_MSG2_SIZE": {
+      "type": "usize",
+      "value": 57
+    },
+    "JITTER_ALPHA_SHIFT": {
+      "type": "u32",
+      "value": 4
+    },
+    "MAX_MESSAGE_SIZE": {
+      "type": "usize",
+      "value": 65535
+    },
+    "MIN_SESSION_REPORT_INTERVAL_MS": {
+      "type": "u64",
+      "value": 500
+    },
+    "MTU_EXCEEDED_SIZE": {
+      "type": "usize",
+      "value": 36
+    },
+    "PATH_MTU_NOTIFICATION_SIZE": {
+      "type": "usize",
+      "value": 2
+    },
+    "PROTOCOL_VERSION": {
+      "type": "u8",
+      "value": 1
+    },
+    "PUBKEY_SIZE": {
+      "type": "usize",
+      "value": 33
+    },
+    "RECEIVER_REPORT_BODY_SIZE": {
+      "type": "usize",
+      "value": 67
+    },
+    "RECEIVER_REPORT_WIRE_SIZE": {
+      "type": "usize",
+      "value": 72
+    },
+    "REPLAY_WINDOW_SIZE": {
+      "type": "usize",
+      "value": 2048
+    },
+    "RTTVAR_BETA_SHIFT": {
+      "type": "u32",
+      "value": 2
+    },
+    "SENDER_REPORT_BODY_SIZE": {
+      "type": "usize",
+      "value": 47
+    },
+    "SENDER_REPORT_WIRE_SIZE": {
+      "type": "usize",
+      "value": 52
+    },
+    "SESSION_DATAGRAM_HEADER_SIZE": {
+      "type": "usize",
+      "value": 36
+    },
+    "SESSION_RECEIVER_REPORT_SIZE": {
+      "type": "usize",
+      "value": 66
+    },
+    "SESSION_SENDER_REPORT_SIZE": {
+      "type": "usize",
+      "value": 46
+    },
+    "SRTT_ALPHA_SHIFT": {
+      "type": "u32",
+      "value": 3
+    },
+    "TAG_SIZE": {
+      "type": "usize",
+      "value": 16
+    },
+    "XK_HANDSHAKE_MSG1_SIZE": {
+      "type": "usize",
+      "value": 33
+    },
+    "XK_HANDSHAKE_MSG2_SIZE": {
+      "type": "usize",
+      "value": 57
+    },
+    "XK_HANDSHAKE_MSG3_SIZE": {
+      "type": "usize",
+      "value": 73
+    }
+  },
+  "enums": {
+    "DisconnectReason": {
+      "ConfigurationChange": 6,
+      "Other": 255,
+      "ProtocolError": 2,
+      "ResourceExhaustion": 4,
+      "Restart": 1,
+      "SecurityViolation": 5,
+      "Shutdown": 0,
+      "Timeout": 7,
+      "TransportFailure": 3
+    },
+    "HandshakeMessageType": {
+      "NoiseIKMsg1": 1,
+      "NoiseIKMsg2": 2
+    },
+    "LinkMessageType": {
+      "Disconnect": 80,
+      "FilterAnnounce": 32,
+      "Heartbeat": 81,
+      "LookupRequest": 48,
+      "LookupResponse": 49,
+      "ReceiverReport": 2,
+      "SenderReport": 1,
+      "SessionDatagram": 0,
+      "TreeAnnounce": 16
+    },
+    "SessionMessageType": {
+      "CoordsRequired": 32,
+      "CoordsWarmup": 20,
+      "DataPacket": 16,
+      "MtuExceeded": 34,
+      "PathBroken": 33,
+      "PathMtuNotification": 19,
+      "ReceiverReport": 18,
+      "SenderReport": 17
+    }
+  },
+  "missing_expected": {
+    "consts": [],
+    "enums": []
+  },
+  "name": "v0.4.0",
+  "upstream": {
+    "authority": "jmcorgan/fips",
+    "commit": "d5ee526f0e15d6e7a6336cf5746c763f4d1779e8",
+    "ref": "v0.4.0",
+    "repo": "https://github.com/jmcorgan/fips.git"
+  }
+}

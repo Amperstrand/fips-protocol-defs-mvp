@@ -1,0 +1,150 @@
+{
+  "consts": {
+    "COMMON_PREFIX_SIZE": {
+      "type": "usize",
+      "value": 4
+    },
+    "COORDS_REQUIRED_SIZE": {
+      "type": "usize",
+      "value": 34
+    },
+    "ENCRYPTED_MIN_SIZE": {
+      "type": "usize",
+      "value": 32
+    },
+    "EPOCH_ENCRYPTED_SIZE": {
+      "type": "usize",
+      "value": 24
+    },
+    "EPOCH_SIZE": {
+      "type": "usize",
+      "value": 8
+    },
+    "ESTABLISHED_HEADER_SIZE": {
+      "type": "usize",
+      "value": 16
+    },
+    "FMP_VERSION": {
+      "type": "u8",
+      "value": 0
+    },
+    "HANDSHAKE_MSG1_SIZE": {
+      "type": "usize",
+      "value": 106
+    },
+    "HANDSHAKE_MSG2_SIZE": {
+      "type": "usize",
+      "value": 57
+    },
+    "INNER_HEADER_SIZE": {
+      "type": "usize",
+      "value": 5
+    },
+    "MAX_MESSAGE_SIZE": {
+      "type": "usize",
+      "value": 65535
+    },
+    "MSG1_WIRE_SIZE": {
+      "type": "usize",
+      "value": 114
+    },
+    "MSG2_WIRE_SIZE": {
+      "type": "usize",
+      "value": 69
+    },
+    "MTU_EXCEEDED_SIZE": {
+      "type": "usize",
+      "value": 36
+    },
+    "PATH_MTU_NOTIFICATION_SIZE": {
+      "type": "usize",
+      "value": 2
+    },
+    "PUBKEY_SIZE": {
+      "type": "usize",
+      "value": 33
+    },
+    "REPLAY_WINDOW_SIZE": {
+      "type": "usize",
+      "value": 2048
+    },
+    "SESSION_DATAGRAM_HEADER_SIZE": {
+      "type": "usize",
+      "value": 36
+    },
+    "SESSION_RECEIVER_REPORT_SIZE": {
+      "type": "usize",
+      "value": 66
+    },
+    "SESSION_SENDER_REPORT_SIZE": {
+      "type": "usize",
+      "value": 46
+    },
+    "TAG_SIZE": {
+      "type": "usize",
+      "value": 16
+    },
+    "XK_HANDSHAKE_MSG1_SIZE": {
+      "type": "usize",
+      "value": 33
+    },
+    "XK_HANDSHAKE_MSG2_SIZE": {
+      "type": "usize",
+      "value": 57
+    },
+    "XK_HANDSHAKE_MSG3_SIZE": {
+      "type": "usize",
+      "value": 73
+    }
+  },
+  "enums": {
+    "DisconnectReason": {
+      "ConfigurationChange": 6,
+      "Other": 255,
+      "ProtocolError": 2,
+      "ResourceExhaustion": 4,
+      "Restart": 1,
+      "SecurityViolation": 5,
+      "Shutdown": 0,
+      "Timeout": 7,
+      "TransportFailure": 3
+    },
+    "HandshakeMessageType": {
+      "NoiseIKMsg1": 1,
+      "NoiseIKMsg2": 2
+    },
+    "LinkMessageType": {
+      "Disconnect": 80,
+      "FilterAnnounce": 32,
+      "Heartbeat": 81,
+      "LookupRequest": 48,
+      "LookupResponse": 49,
+      "ReceiverReport": 2,
+      "SenderReport": 1,
+      "SessionDatagram": 0,
+      "TreeAnnounce": 16
+    },
+    "RoutingSignalType": {
+      "CoordsRequired": 32,
+      "MtuExceeded": 34,
+      "PathBroken": 33
+    }
+  },
+  "missing_expected": {
+    "consts": [
+      "PROTOCOL_VERSION",
+      "RECEIVER_REPORT_BODY_SIZE",
+      "RECEIVER_REPORT_WIRE_SIZE",
+      "SENDER_REPORT_BODY_SIZE",
+      "SENDER_REPORT_WIRE_SIZE"
+    ],
+    "enums": []
+  },
+  "name": "master",
+  "upstream": {
+    "authority": "jmcorgan/fips",
+    "commit": "8aab71af8693f812aff95c24a6828cbf921e497d",
+    "ref": "master",
+    "repo": "https://github.com/jmcorgan/fips.git"
+  }
+}

@@ -1,0 +1,15 @@
+[package]
+name = "fips-protocol-defs"
+version = "0.1.0"
+edition = "2021"
+description = "FIPS wire-protocol definition constants — extraction-fed from jmcorgan/fips. Experimental downstream tooling, NOT the canonical spec."
+license = "MIT"
+publish = false
+
+[features]
+default = ["fips-v0-ik-xk"]
+# Select the protocol profile. `fips-v0-ik-xk` is the current-compatible
+# FMP v0 / IK-XK profile, pinned to jmcorgan/fips@v0.4.0.
+fips-v0-ik-xk = []
+# fips-v1-xx-draft is intentionally NOT exposed here. It is a draft/future
+# profile (FMP v1 / Noise XX) that must stay gated until upstream ships it.

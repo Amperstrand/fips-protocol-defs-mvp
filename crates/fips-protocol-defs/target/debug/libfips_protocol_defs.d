@@ -1,0 +1,1 @@
+/Users/macbook/src/fips-protocol-defs-mvp/crates/fips-protocol-defs/target/debug/libfips_protocol_defs.rlib: /Users/macbook/src/fips-protocol-defs-mvp/crates/fips-protocol-defs/src/../../../generated/rust/fips_v0_ik_xk.rs /Users/macbook/src/fips-protocol-defs-mvp/crates/fips-protocol-defs/src/lib.rs

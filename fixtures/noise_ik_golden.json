@@ -1,0 +1,12 @@
+{
+  "protocol": "Noise_IK_secp256k1_ChaChaPoly_SHA256",
+  "source": "jmcorgan/fips src/noise/handshake.rs",
+  "init_static_secret": "1111111111111111111111111111111111111111111111111111111111111111",
+  "init_static_pub": "034f355bdcb7cc0af728ef3cceb9615d90684bb5b2ca5f859ab0f0b704075871aa",
+  "resp_static_secret": "2222222222222222222222222222222222222222222222222222222222222222",
+  "resp_static_pub": "02466d7fcae563e5cb09a0d1870bb580344804617879a14949cf22285f1bae3f27",
+  "init_epoch": "0100000000000000",
+  "resp_epoch": "0200000000000000",
+  "static_pubkey_match_microfips": true,
+  "microfips_generated_msg1": "031b84c5567b126440995d3ed5aaba0565d71e1834604819ff9c17f5e9d5dd078f8fbabc9585161aace9b5957f305bdb278db340ca4389a1367b62ebfef36a1562f8baf6b700e6982034fe68dfeecc1a39d50186304acbfef02b0128a140ebb783ecb92b6c938d87a4f7"
+}
